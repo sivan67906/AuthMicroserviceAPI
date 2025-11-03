@@ -6,6 +6,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace AuthMicroservice.Application.Features.Authentication.Login;
 
@@ -110,8 +111,8 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, Result<LoginRes
         var accessToken = _tokenService.GenerateAccessToken(user, roles);
         var refreshToken = _tokenService.GenerateRefreshToken();
 
-        // Save refresh token
-        var refreshTokenEntity = new RefreshToken
+        // Save refresh token - Note: Fully qualified type name to avoid namespace collision
+        var refreshTokenEntity = new AuthMicroservice.Domain.Entities.RefreshToken
         {
             Id = Guid.NewGuid(),
             UserId = user.Id,
