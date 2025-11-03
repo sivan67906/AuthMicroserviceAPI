@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AuthMicroservice.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:12653;http://localhost:12654"
+    }
+  }
+}
