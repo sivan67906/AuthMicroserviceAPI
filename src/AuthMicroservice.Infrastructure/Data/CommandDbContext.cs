@@ -43,7 +43,7 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 Name = "Admin",
                 NormalizedName = "ADMIN",
                 Description = "Administrator role with full permissions",
-                ConcurrencyStamp = Guid.NewGuid().ToString()
+                ConcurrencyStamp = "c080cfc3-0f10-4e11-a4ef-4ea1e542af0e"
             },
             new ApplicationRole
             {
@@ -51,7 +51,7 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 Name = "User",
                 NormalizedName = "USER",
                 Description = "Standard user role",
-                ConcurrencyStamp = Guid.NewGuid().ToString()
+                ConcurrencyStamp = "b1334f8d-0fa9-4250-8825-cc7bc64e8832"
             },
             new ApplicationRole
             {
@@ -59,14 +59,14 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 Name = "Moderator",
                 NormalizedName = "MODERATOR",
                 Description = "Moderator role with limited admin permissions",
-                ConcurrencyStamp = Guid.NewGuid().ToString()
+                ConcurrencyStamp = "884037d1-7e3e-4a1d-ba98-f34e1c35381b"
             }
         );
 
         // Seed Admin User
         var adminUserId = Guid.Parse("69bd714f-9576-45ba-b5b7-f00649be00de");
         var hasher = new PasswordHasher<ApplicationUser>();
-        
+
         builder.Entity<ApplicationUser>().HasData(
             new ApplicationUser
             {
@@ -76,13 +76,13 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 Email = "admin@example.com",
                 NormalizedEmail = "ADMIN@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash = hasher.HashPassword(null!, "Admin@123"),
-                SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                PasswordHash = "AQAAAAIAAYagAAAAELT+1lSllaK+4s7JzY5bPt5CODuJLyyzQ6NGkwxraBxocsDSbGR8URoCDWKZAfJ/Dg==",
+                SecurityStamp = "cdba3083-2766-4b4d-8528-60999c2e9cb3",
+                ConcurrencyStamp = "95d065ce-1e76-4885-b564-b6547556afd5",
                 FullName = "System Administrator",
                 IsActive = true,
                 IsEmailConfirmed = true,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = new DateTime(2025, 11, 3, 5, 57, 55, 200, DateTimeKind.Utc).AddTicks(1019),
                 IsTwoFactorEnabled = false
             }
         );
@@ -104,7 +104,7 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 ClientName = "Web Application",
                 Description = "Web browser client",
                 IsActive = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = new DateTime(2025, 11, 3, 5, 57, 55, 200, DateTimeKind.Utc).AddTicks(2764)
             },
             new Client
             {
@@ -112,7 +112,7 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 ClientName = "Android Application",
                 Description = "Android mobile client",
                 IsActive = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = new DateTime(2025, 11, 3, 5, 57, 55, 200, DateTimeKind.Utc).AddTicks(2854)
             },
             new Client
             {
@@ -120,7 +120,7 @@ public class CommandDbContext : IdentityDbContext<ApplicationUser, ApplicationRo
                 ClientName = "iOS Application",
                 Description = "iOS mobile client",
                 IsActive = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = new DateTime(2025, 11, 3, 5, 57, 55, 200, DateTimeKind.Utc).AddTicks(2856)
             }
         );
     }
